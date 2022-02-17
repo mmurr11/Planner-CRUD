@@ -22,12 +22,24 @@ const todoSlice = createSlice({
                     }
                 }
             })
+        },
+
+        deleteTodo: (state, action) => {
+            
+            for (let i = state.todoList.length - 1; i >= 0; --i) {
+                if (state.todoList[i].id == action.payload) {
+                    state.todoList.splice(i,1);
+                }
+            }
+
         }
+        
 
     }
 });
 
-export const { saveTodo, setCheck } = todoSlice.actions
+
+export const { saveTodo, setCheck, deleteTodo } = todoSlice.actions
 
 export const selectTodoList = state => state.todos.todoList
 

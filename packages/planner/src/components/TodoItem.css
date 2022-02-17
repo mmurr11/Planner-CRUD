@@ -6,6 +6,7 @@
     margin: 6px 4px;
     height: 40px;
     border-radius: 12px;
+    font-size: 2rem;
 }
 
 .todoItem>p{
