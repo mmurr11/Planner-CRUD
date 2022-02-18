@@ -1,8 +1,9 @@
 import React from 'react'
 import './TodoItem.css'
-import Checkbox from '@material-ui/core/Checkbox'
+import { Checkbox } from '@mui/material'
 import { useDispatch } from 'react-redux'
 import { setCheck, deleteTodo } from '../features/todoSlice'
+import { Button } from '@mui/material';
 
 const TodoItem = ({ name, done, id }) => {
 
@@ -26,10 +27,11 @@ const TodoItem = ({ name, done, id }) => {
                 color='primary'
                 onChange={handleCheck}
                 inputProps={{ 'aria-label': 'secondary checkbox' }}
+                size='large'
             />
 
             <p className={done && 'todoItem--done'}>{name}</p>
-            <button onClick={handleDelete}>X</button>
+            <Button variant='contained' onClick={handleDelete}>X</Button>
         </div>
     )
 }
