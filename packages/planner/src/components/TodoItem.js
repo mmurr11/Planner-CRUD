@@ -32,7 +32,7 @@ const TodoItem = ({ name, done, id }) => {
             />
 
             <p className={done && 'todoItem--done'}>{name}</p>
-            <Button variant='contained' onClick={handleDelete}>X</Button>
+            <Button variant='contained' size='small' onClick={handleDelete}>X</Button>
         </div>
     )
 }

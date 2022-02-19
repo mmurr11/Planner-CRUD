@@ -11,19 +11,29 @@ const TodoContainer = () => {
     const todoList = useSelector(selectTodoList)
 
     return (
-        <>
-        <div className='app_todoContainer'>
-            {
-                  todoList.map(item => (
-                    <TodoItem
-                      name={item.item}
-                      done={item.done}
-                      id={item.id} />
-                  ))
-            }
-        </div>
-        <Input/>
-        </>
+        <Grid 
+            item xs={4}
+            sx={{
+                minHeight: 1,
+                minWidth: 0.8,
+                alignItems: 'center',
+                bgcolor: 'primary.main'
+            }}
+        >
+            <div className='todoContainer'>
+                
+                {
+                    todoList.map(item => (
+                        <TodoItem
+                        name={item.item}
+                        done={item.done}
+                        id={item.id} />
+                    ))
+                }
+                
+            </div>
+            <Input/>
+        </Grid>
     )
 
 }

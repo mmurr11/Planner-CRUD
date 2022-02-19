@@ -44,7 +44,9 @@ const Input = () => {
             <Button 
                 id='textArea'
                 variant='contained' 
-                onClick={addTodo}>
+                onClick={addTodo}
+                size='small'    
+            >
                 Add
             </Button>
 
