@@ -6,23 +6,21 @@
     justify-content: center;
     align-items: center;
     font-size: 3rem;
+    position: 'relative';
 }
 
-input{
-    background: none;
-    border: none;
-    margin-left: 12px;
-    flex: 1;
+.MuiGrid-root {
+    border-radius: 12px;
 }
 
-input:focus{
-    outline: none;    
+.MuiFormControl-root {
+    margin: 10;
+    min-width: 80%;
+    font-size: 200;
+    position: 'absolute';
+    bottom: 0;
 }
 
-button{
-    margin: 8px;
-    background-color: rgb(214, 213, 213);
-    border-radius: 10px;
-    height: 30px;
-    width: 50px;
+.MuiInputLabel-root {
+    font-size: large;
 }

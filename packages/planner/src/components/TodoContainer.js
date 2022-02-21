@@ -12,26 +12,20 @@ const TodoContainer = () => {
 
     return (
         <Grid 
-            item xs={4}
+            item 
+            // xs={3}
             sx={{
-                minHeight: 1,
-                minWidth: 0.8,
-                alignItems: 'center',
                 bgcolor: 'primary.main'
             }}
         >
-            <div className='todoContainer'>
-                
-                {
-                    todoList.map(item => (
-                        <TodoItem
+            {
+                todoList.map(item => (
+                    <TodoItem
                         name={item.item}
                         done={item.done}
                         id={item.id} />
                     ))
-                }
-                
-            </div>
+            }
             <Input/>
         </Grid>
     )

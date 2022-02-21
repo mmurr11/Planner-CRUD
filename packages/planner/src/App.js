@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css'
-import Input from './components/Input'
 import TodoContainer from './components/TodoContainer';
 import { createTheme, ThemeProvider } from '@mui/material'
 import { indigo, lightBlue } from '@mui/material/colors';
@@ -31,10 +30,15 @@ function App() {
     <div className="app">
       <ThemeProvider theme={theme}>
         <Container>
-          <Grid container spacing={1}>            
-              <div className='app_container'>
-                <TodoContainer/>            
-              </div>            
+          <Grid 
+            container
+            direction="row"
+            justifyContent="center"
+            alignItems="center"
+          >            
+            <TodoContainer/>  
+            <TodoContainer/> 
+            <TodoContainer/>           
           </Grid>
         </Container>
       </ThemeProvider>

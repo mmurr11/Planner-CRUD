@@ -26,12 +26,7 @@ const Input = () => {
     return (
         <div className='input'>
 
-            <TextField 
-                sx={{
-                    mr: 1,
-                    minWidth: 1,
-                    fontSize: 200,
-                }} 
+            <TextField                 
                 id="textField" 
                 variant="outlined" 
                 label='I need to...'
