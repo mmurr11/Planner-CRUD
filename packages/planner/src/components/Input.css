@@ -1,6 +1,5 @@
 .input{
-    height: 50px;
-    width: 80%;
+    height: 15%;
     border-radius: 12px;
     display: flex;
     justify-content: center;
@@ -15,7 +14,6 @@
 
 .MuiFormControl-root {
     margin: 10;
-    min-width: 80%;
     font-size: 200;
     position: 'absolute';
     bottom: 0;

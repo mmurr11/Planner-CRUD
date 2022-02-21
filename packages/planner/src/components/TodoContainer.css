@@ -1,6 +1,7 @@
 .MuiGrid-item {
-  min-height: 1;
-  max-width: 0.33;
-  align-items: 'center';
-  padding: 5%;
+  min-height: 70vh;
 }
+
+.MuiPaper-root {
+  border-radius: 12px;
+} 

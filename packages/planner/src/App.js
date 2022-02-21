@@ -1,9 +1,10 @@
-import React from 'react';
 import './App.css'
 import TodoContainer from './components/TodoContainer';
 import { createTheme, ThemeProvider } from '@mui/material'
 import { indigo, lightBlue } from '@mui/material/colors';
-import { Grid, Container } from '@mui/material';
+import * as React from 'react';
+import Grid from '@mui/material/Grid';
+import Paper from '@mui/material/Paper';
 
 const theme = createTheme({
   palette: {
@@ -24,26 +25,22 @@ const theme = createTheme({
   }
 })
 
-function App() {
+const App = () => {
 
   return (
-    <div className="app">
-      <ThemeProvider theme={theme}>
-        <Container>
-          <Grid 
-            container
-            direction="row"
-            justifyContent="center"
-            alignItems="center"
-          >            
-            <TodoContainer/>  
-            <TodoContainer/> 
-            <TodoContainer/>           
-          </Grid>
-        </Container>
-      </ThemeProvider>
+    <div className='app'>
+    <Grid id='one' sx={{ flexGrow: 1 }} container spacing={2}>
+      <Grid id='two' item xs={12}>
+        <Grid id='three' container justifyContent="center" alignItems="center" spacing={9}>
+          <TodoContainer/>  
+          <TodoContainer/>
+          <TodoContainer/>
+        </Grid>
+      </Grid>      
+    </Grid>
     </div>
   );
+              
 }
 
 export default App;
