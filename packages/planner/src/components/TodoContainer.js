@@ -1,10 +1,9 @@
 import React from 'react'
-import './TodoContainer.css'
 import TodoItem from './TodoItem'
 import Input from './Input'
 import { useSelector } from 'react-redux'
 import { selectTodoList } from '../features/todoSlice';
-import { Grid } from '@mui/material'
+import { Grid, Stack } from '@mui/material'
 import { Paper } from '@mui/material'
 
 const TodoContainer = () => {
@@ -13,7 +12,7 @@ const TodoContainer = () => {
 
     return (
 
-        <Grid id='four' item>
+        <Grid id='todoContainer' item>
             <Paper
                 id='five'
                 sx={{
@@ -22,17 +21,24 @@ const TodoContainer = () => {
                   backgroundColor: (theme) =>
                     theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
                   borderRadius: 4,
+                  overflow: 'scroll',
+                  overflowX: 'hidden',
+                  position: 'relative'
                 }}
             >
-                {
-                    todoList.map(item => (
-                        <TodoItem
-                            name={item.item}
-                            done={item.done}
-                            id={item.id} 
-                        />
-                    ))
-                }
+                <Stack
+                    direction='column-reverse'
+                >
+                    {
+                        todoList.map(item => (
+                            <TodoItem
+                                name={item.item}
+                                done={item.done}
+                                id={item.id} 
+                            />
+                        ))
+                    }                
+                </Stack>
                 <Input/>
             </Paper>
         </Grid>

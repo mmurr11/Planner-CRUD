@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './Input.css'
 import { useDispatch } from 'react-redux'
 import { saveTodo } from '../features/todoSlice'
-import { Button } from '@mui/material'
+import { Button, Paper } from '@mui/material'
 import { TextField } from '@mui/material'
 
 const Input = () => {
@@ -24,28 +24,46 @@ const Input = () => {
         setInput("")
     }
     return (
-        <div className='input'>
+        <Paper 
+            className='input'
+            elevation={5}
+            sx={{
+                position: 'absolute',
+                width: 0.95,
+                bottom: 0,
+            }}
+        >
 
             <TextField                 
                 id="textField" 
-                variant="outlined" 
+                variant="standard" 
                 label='I need to...'
                 value={input} 
                 onChange={e => setInput(e.target.value)}
                 autoComplete='off'
+                sx={{
+                    pt: 1,
+                    pb: 1,
+                    ml: 3,
+                    fontSize: 2,
+                }}
             >
             </TextField>
 
             <Button 
                 id='textArea'
                 variant='contained' 
+                size='large' 
+                sx={{
+                    margin: 1,
+                    height: 0.5,
+                }} 
                 onClick={addTodo}
-                size='small'    
             >
                 Add
             </Button>
 
-        </div>
+        </Paper>
     )
 }
 

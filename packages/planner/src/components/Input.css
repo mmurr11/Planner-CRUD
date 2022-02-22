@@ -1,11 +1,10 @@
 .input{
-    height: 15%;
     border-radius: 12px;
-    display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     font-size: 3rem;
-    position: 'relative';
+    display: flex;
+    margin: 3%;
 }
 
 .MuiGrid-root {
@@ -16,9 +15,12 @@
     margin: 10;
     font-size: 200;
     position: 'absolute';
-    bottom: 0;
 }
 
 .MuiInputLabel-root {
     font-size: large;
+}
+
+#textField {
+    font-size: medium;
 }
