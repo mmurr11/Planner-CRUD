@@ -1,6 +1,7 @@
 .PrivatePickersToolbar-root {
     height: max-content;
     position: absolute;
+    margin: 10% 0 0 5%;
 }
 
 .MuiTypography-root {
@@ -10,6 +11,24 @@
 }
 
 .MuiTypography-h4 {
-    padding-top: 90%;
+    position: relative;
+    padding: 90% 1%;
     font-size: x-large !important;
+}
+
+#weekContainer > div > div > div > div.css-epd502 {
+    height: 100%;
+    padding: 40% 0;
+}
+
+#weekContainer > div > div > div > div.css-epd502 > div > div.css-1dozdou > div.css-l0iinn>* {
+    font-size: xx-large !important;
+}
+
+.MuiButtonBase-root {
+    font-size: large !important;
+}
+
+.MuiYearPicker-root {
+    font-size: xx-large !important;
 }
