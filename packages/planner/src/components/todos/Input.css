@@ -1,0 +1,25 @@
+.input{
+    border-radius: 12px;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    margin: 3%;
+}
+
+.MuiGrid-root {
+    border-radius: 12px;
+}
+
+.MuiFormControl-root {
+    margin: 10;
+    font-size: 200;
+    position: 'absolute';
+}
+
+.MuiInputLabel-root {
+    font-size: large !important;
+}
+
+#textField {
+    font-size: medium !important;
+}

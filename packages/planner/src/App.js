@@ -1,10 +1,11 @@
 import './App.css'
-import TodoContainer from './components/TodoContainer';
-import { createTheme, ThemeProvider } from '@mui/material'
+import TodoContainer from './components/todos/TodoContainer';
+import { createTheme } from '@mui/material'
 import { indigo, lightBlue } from '@mui/material/colors';
 import * as React from 'react';
 import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
+import WeekContainer from './components/calendar/Calendar';
+import WeatherContainer from './components/weather/Weather';
 
 const theme = createTheme({
   palette: {
@@ -32,8 +33,8 @@ const App = () => {
     <Grid id='one' sx={{ flexGrow: 1 }} container spacing={2}>
       <Grid id='two' item xs={12}>
         <Grid id='three' container justifyContent="center" alignItems="center" spacing={9}>
-          <TodoContainer/>  
-          <TodoContainer/>
+          <WeatherContainer/>  
+          <WeekContainer/>
           <TodoContainer/>
         </Grid>
       </Grid>      

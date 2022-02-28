@@ -8,8 +8,19 @@ const todoSlice = createSlice({
     name: 'todos',
     initialState,
     reducers: {
+
         saveTodo: (state, action) => {
             state.todoList.push(action.payload)
+        },
+
+        editTodo: (state, action) => {
+            
+            for (let i = state.todoList.length - 1; i >= 0; --i) {
+                if (state.todoList[i].id === action.payload) {
+                    state.todoList.splice(i,1);
+                }
+            }
+
         },
 
         setCheck: (state, action) => {
@@ -27,7 +38,7 @@ const todoSlice = createSlice({
         deleteTodo: (state, action) => {
             
             for (let i = state.todoList.length - 1; i >= 0; --i) {
-                if (state.todoList[i].id == action.payload) {
+                if (state.todoList[i].id === action.payload) {
                     state.todoList.splice(i,1);
                 }
             }

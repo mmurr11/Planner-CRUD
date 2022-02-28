@@ -1,0 +1,15 @@
+.PrivatePickersToolbar-root {
+    height: max-content;
+    position: absolute;
+}
+
+.MuiTypography-root {
+    font-size: medium !important;
+    font-family: inherit;
+    letter-spacing: inherit;
+}
+
+.MuiTypography-h4 {
+    padding-top: 90%;
+    font-size: x-large !important;
+}
