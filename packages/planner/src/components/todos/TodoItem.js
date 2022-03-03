@@ -69,10 +69,16 @@ const TodoItem = ({ name, done, id }) => {
                 <TextareaAutosize
                     id={`textArea${id}`}
                     className={done && 'todoItem--done'}
-                    // if value={item} or defaultValue={name or item}, state is updated but is in 
-                    // different order to how it renders and it doesnt render the state correctly on handleDelete.
+
+                    // if value={item} or defaultValue={name or item}, handleEdit updates state but is in different order to how it renders
+                    // handleDelete works in the state but doesnt render the state anymore, it pops the most recent input.
+
                     // if value={name}, cant edit text or update state but handleDelete works as expected.
-                    // Expected behavior: 
+
+                    // Expected behavior: Delete button deletes what you click on in the state and dom. 
+                    // handleEdit button toggles read only (T/f) and allows user to click again to change text on clicked item and remains in same order
+                    // a new reducer for handleEdit should do the trick, but handleDelete still needs a solution
+                    
                     value={item}
                     onChange={e => setItem(e.target.value)}                    
                     readOnly={readOnly}  

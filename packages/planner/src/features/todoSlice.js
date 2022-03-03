@@ -49,6 +49,7 @@ const todoSlice = createSlice({
     }
 });
 
+// set { "datePassed": bool, "items": bool, "itemsDue": bool } then export
 
 export const { saveTodo, setCheck, deleteTodo } = todoSlice.actions
 

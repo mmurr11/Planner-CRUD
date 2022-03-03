@@ -2,13 +2,18 @@ import React, { useState } from 'react'
 import './Input.css'
 import { useDispatch } from 'react-redux'
 import { saveTodo } from '../../features/todoSlice'
+import { saveStatus } from '../../features/calendarSlice'
 import { Button, Paper } from '@mui/material'
 import { TextField } from '@mui/material'
+import { Add } from '@mui/icons-material'
 
 const Input = () => {
 
     const [input, setInput] = useState('')
     const dispatch = useDispatch()
+    const [items, setitems] = useState(false)
+    const [itemsDue, setitemsDue] = useState(false)
+    const [datePassed, setdatePassed] = useState(false)
 
     const addTodo = () => {
 
@@ -20,6 +25,14 @@ const Input = () => {
             item: input,
             done: false,
             id: Date.now()
+        }))
+
+        setitems(true)
+
+        dispatch(saveStatus({
+            datePassed: datePassed,
+            items: items,
+            itemsDue: itemsDue
         }))
         setInput("")
     }
@@ -69,7 +82,7 @@ const Input = () => {
                 }} 
                 onClick={addTodo}
             >
-                Add
+                <Add/>
             </Button>
 
         </Paper>
