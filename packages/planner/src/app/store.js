@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 import todoReducer from '../features/todoSlice'
-import calendarReducer from '../features/calendarSlice';
+import dateStatusReducer from '../features/dateStatusSlice';
 
 export const store = configureStore({
   reducer: {
     todos: todoReducer,
-    dateStatus: calendarReducer,
+    dateStatus: dateStatusReducer,
   },
 });

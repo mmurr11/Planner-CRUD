@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import './Input.css'
 import { useDispatch } from 'react-redux'
 import { saveTodo } from '../../features/todoSlice'
-import { saveStatus } from '../../features/calendarSlice'
 import { Button, Paper } from '@mui/material'
 import { TextField } from '@mui/material'
 import { Add } from '@mui/icons-material'
@@ -11,28 +10,16 @@ const Input = () => {
 
     const [input, setInput] = useState('')
     const dispatch = useDispatch()
-    const [items, setitems] = useState(false)
-    const [itemsDue, setitemsDue] = useState(false)
-    const [datePassed, setdatePassed] = useState(false)
 
     const addTodo = () => {
 
         if (input.length < 1) {
             return
         }
-
         dispatch(saveTodo({
             item: input,
             done: false,
             id: Date.now()
-        }))
-
-        setitems(true)
-
-        dispatch(saveStatus({
-            datePassed: datePassed,
-            items: items,
-            itemsDue: itemsDue
         }))
         setInput("")
     }
@@ -60,7 +47,7 @@ const Input = () => {
                 variant="standard" 
                 label='I need to...'
                 value={input} 
-                onChange={e => setInput(e.target.value)}
+                onChange={(e) => setInput(e.target.value)}
                 autoComplete='off'
                 onKeyPress={handleEnter}
                 sx={{

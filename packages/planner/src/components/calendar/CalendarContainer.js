@@ -3,11 +3,9 @@ import { Grid } from '@mui/material'
 import { Paper } from '@mui/material'
 import Calendar from './Calendar'
 import { useSelector } from 'react-redux'
-import { selectDateStatus } from '../../features/calendarSlice'
 
 const CalendarContainer = () => {
 
-    const dateStatus = useSelector(selectDateStatus)
 
     return (
 
@@ -21,15 +19,16 @@ const CalendarContainer = () => {
                   position: 'relative'
                 }}
             > 
-            { 
+            {/* { 
                         dateStatus.map(item => (
                             <Calendar
-                                datePassed={item.datePassed}
+                                id={item.id}
                                 items={item.items}
-                                itemsDue={item.itemsDue} 
+                                itemsDue={item.itemsDue}
+                                datePassed={item.datePassed}
                             />
                         ))
-            } 
+            }  */}
             <Calendar />               
             </Paper>
         </Grid>
@@ -39,6 +38,3 @@ const CalendarContainer = () => {
 }
 
 export default CalendarContainer
-
-// dateStatusList.map the object of bools from todoSlice
-
