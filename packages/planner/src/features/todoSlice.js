@@ -11,32 +11,24 @@ const todoSlice = createSlice({
     reducers: {
 
         saveTodo: (state, action) => {
+
             state.todoList.push(action.payload)
             state.listStatus[0].items = true
             state.listStatus[0].itemsDue = true
+            
         },
 
         editTodo: (state, action) => {
             
-            for (let i = state.todoList.length - 1; i >= 0; --i) {
-                if (state.todoList[i].id === action.payload) {
-                    state.todoList.splice(i,1);
-                }
-            }
+            const i = state.todoList.findIndex((todo) => todo.id === action.payload.id)
+            state.todoList[i].item = action.payload.name
 
         },
 
         setCheck: (state, action) => {
 
-            state.todoList.map(item => {
-                if (action.payload === item.id) {
-                    if (item.done) {
-                        item.done = false
-                    } else {
-                        item.done = true
-                    }
-                }
-            })
+            const i = state.todoList.findIndex((todo) => todo.id === action.payload.id)
+            state.todoList[i].done = !state.todoList[i].done
 
             state.listStatus[0].itemsDue = state.todoList.some((e) => {
                 return !e.done;
@@ -49,12 +41,9 @@ const todoSlice = createSlice({
             if (state.todoList.length === 1) {
                 state.listStatus[0].items = false
             }
-            
-            for (let i = state.todoList.length - 1; i >= 0; --i) {
-                if (state.todoList[i].id === action.payload) {
-                    state.todoList.splice(i,1);
-                }
-            }
+         
+            const newList = state.todoList.filter((todo) => todo.id !== action.payload.id)
+            state.todoList = newList
 
             state.listStatus[0].itemsDue = state.todoList.some((e) => {
                 return !e.done;
@@ -66,9 +55,7 @@ const todoSlice = createSlice({
     }
 });
 
-// set { "datePassed": bool, "items": bool, "itemsDue": bool } then export
-
-export const { saveTodo, setCheck, deleteTodo } = todoSlice.actions
+export const { saveTodo, setCheck, deleteTodo, editTodo } = todoSlice.actions
 
 export const selectTodoList = state => state.todos.todoList
 

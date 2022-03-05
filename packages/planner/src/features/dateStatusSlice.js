@@ -10,9 +10,10 @@ const dateStatusSlice = createSlice({
     initialState,
     reducers: {
 
-        saveStatus: (state, action) => {
+        setDay: (state, action) => {
             state.dateStatusList.push(action.payload)
-        },  
+        }, 
+
     }
 });
 

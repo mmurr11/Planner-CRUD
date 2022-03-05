@@ -7,7 +7,10 @@ import StaticDatePicker from '@mui/lab/StaticDatePicker';
 
 const Calendar = ({ completed, incomplete, overdue, unfilled }) => {
 
-    const [value, setValue] = React.useState(new Date());
+    const [value, setValue] = React.useState(new Date().getTime());
+    const yesterdayTimeStamp = value - 24*60*60*1000;
+    const yesterdayDate = new Date(yesterdayTimeStamp);
+    console.log(value >= yesterdayDate)
 
     return (
 

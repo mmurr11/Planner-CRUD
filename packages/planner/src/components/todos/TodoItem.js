@@ -2,7 +2,7 @@ import React from 'react'
 import './TodoItem.css'
 import { Checkbox, Paper, Stack } from '@mui/material'
 import { useDispatch } from 'react-redux'
-import { setCheck, deleteTodo, saveTodo } from '../../features/todoSlice'
+import { setCheck, deleteTodo, saveTodo, editTodo } from '../../features/todoSlice'
 import { Button } from '@mui/material';
 import { TextareaAutosize } from '@mui/base';
 import { DeleteOutline, EditOutlined, CheckSharp } from '@mui/icons-material'
@@ -14,26 +14,24 @@ const TodoItem = ({ name, done, id }) => {
     const [readOnly, setReadOnly] = useState(true)
     const [item, setItem] = useState(name) 
 
-    const editTodo = () => {
-        dispatch(saveTodo({
-            item: item,
-            done: done,
+    const handleCheck = () => {
+        dispatch(setCheck({
             id: id
         }))
     }
 
-    const handleCheck = () => {
-        dispatch(setCheck(id))
-    }
-
     const handleDelete = () => {
-        dispatch(deleteTodo(id))
+        dispatch(deleteTodo({
+            id: id
+        }))
     }
 
     const handleEdit = () => {       
         if (!readOnly) {
-            handleDelete()
-            editTodo()        
+            dispatch(editTodo({
+                id: id,
+                name: item
+            }))        
         }
         setReadOnly(!readOnly)    
     }
