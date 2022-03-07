@@ -2,7 +2,6 @@ import React from 'react'
 import { Grid } from '@mui/material'
 import { Paper } from '@mui/material'
 import Calendar from './Calendar'
-import { useSelector } from 'react-redux'
 
 const CalendarContainer = () => {
 
@@ -19,16 +18,6 @@ const CalendarContainer = () => {
                   position: 'relative'
                 }}
             > 
-            {/* { 
-                        dateStatus.map(item => (
-                            <Calendar
-                                id={item.id}
-                                items={item.items}
-                                itemsDue={item.itemsDue}
-                                datePassed={item.datePassed}
-                            />
-                        ))
-            }  */}
             <Calendar />               
             </Paper>
         </Grid>
