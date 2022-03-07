@@ -2,13 +2,15 @@ import React from 'react'
 import TodoItem from './TodoItem'
 import Input from './Input'
 import { useSelector } from 'react-redux'
-import { selectTodoList } from '../../features/todoSlice';
+import { selectDateStatus, selectTodoList } from '../../features/todoSlice';
 import { Grid, Stack } from '@mui/material'
 import { Paper } from '@mui/material'
 
 const TodoContainer = () => {
 
     const todoList = useSelector(selectTodoList)
+    const dateStatus = useSelector(selectDateStatus)
+    console.log(dateStatus)
 
     return (
 
@@ -30,6 +32,7 @@ const TodoContainer = () => {
                     {
                         todoList.map(item => (
                             <TodoItem
+                                key={`key${item.id}`}
                                 name={item.item}
                                 done={item.done}
                                 id={item.id} 

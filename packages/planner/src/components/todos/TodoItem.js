@@ -2,7 +2,7 @@ import React from 'react'
 import './TodoItem.css'
 import { Checkbox, Paper, Stack } from '@mui/material'
 import { useDispatch } from 'react-redux'
-import { setCheck, deleteTodo, saveTodo, editTodo } from '../../features/todoSlice'
+import { setCheck, deleteTodo, editTodo } from '../../features/todoSlice'
 import { Button } from '@mui/material';
 import { TextareaAutosize } from '@mui/base';
 import { DeleteOutline, EditOutlined, CheckSharp } from '@mui/icons-material'
@@ -66,17 +66,7 @@ const TodoItem = ({ name, done, id }) => {
                 />
                 <TextareaAutosize
                     id={`textArea${id}`}
-                    className={done && 'todoItem--done'}
-
-                    // if value={item} or defaultValue={name or item}, handleEdit updates state but is in different order to how it renders
-                    // handleDelete works in the state but doesnt render the state anymore, it pops the most recent input.
-
-                    // if value={name}, cant edit text or update state but handleDelete works as expected.
-
-                    // Expected behavior: Delete button deletes what you click on in the state and dom. 
-                    // handleEdit button toggles read only (T/f) and allows user to click again to change text on clicked item and remains in same order
-                    // a new reducer for handleEdit should do the trick, but handleDelete still needs a solution
-                    
+                    className={'todoItem--done'}
                     value={item}
                     onChange={e => setItem(e.target.value)}                    
                     readOnly={readOnly}  
@@ -94,7 +84,8 @@ const TodoItem = ({ name, done, id }) => {
                             resize: 'none',
                             padding: 1,
                             width: 200,
-                            caretColor: readOnly ? 'transparent' : 'auto' 
+                            caretColor: readOnly ? 'transparent' : 'auto', 
+                            textDecoration: done ?  'line-through' : 'none'
                     }}
                 />
                 <div className='buttonContainer'>

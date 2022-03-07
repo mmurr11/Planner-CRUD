@@ -5,10 +5,6 @@
     margin: 3%;
 }
 
-.todoItem--done {
-    text-decoration: line-through;
-}
-
 #five > div.css-4wcyto-MuiStack-root {
     padding-top: 3%;
     max-height: 88%;
