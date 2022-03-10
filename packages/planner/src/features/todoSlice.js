@@ -1,15 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    dateStatus: [ 
-        {
-            date: new Date().getTime(),
-            status: {
-                todoList: [],
-                listStatus: {items: false, itemsDue: false}
-            }
-        }
-    ],
+    todoList: [],
+    listStatus: {items: false, itemsDue: false, datePassed: false}
 }
 
 const todoSlice = createSlice({
@@ -19,25 +12,26 @@ const todoSlice = createSlice({
 
         saveTodo: (state, action) => {
 
-            state.dateStatus[0].status.todoList.push(action.payload)
-            state.dateStatus[0].status.listStatus.items = true
-            state.dateStatus[0].status.listStatus.itemsDue = true
+            state.todoList.push(action.payload)
+            state.listStatus.items = true
+            state.listStatus.itemsDue = true
             
         },
 
         editTodo: (state, action) => {
             
-            const i = state.dateStatus[0].status.todoList.findIndex((todo) => todo.id === action.payload.id)
-            state.dateStatus[0].status.todoList[i].item = action.payload.name
+            const i = state.todoList.findIndex((item) => item.id === action.payload.id)           
+            state.todoList[i].item = action.payload.name
 
         },
 
         setCheck: (state, action) => {
 
-            const i = state.dateStatus[0].status.todoList.findIndex((todo) => todo.id === action.payload.id)
-            state.dateStatus[0].status.todoList[i].done = !state.dateStatus[0].status.todoList[i].done
+            const i = state.todoList.findIndex((todo) => todo.id === action.payload.id)
 
-            state.dateStatus[0].status.listStatus.itemsDue = state.dateStatus[0].status.todoList.some((e) => {
+            state.todoList[i].done = !state.todoList[i].done
+
+            state.listStatus.itemsDue = state.todoList.some((e) => {
                 return !e.done;
             });
 
@@ -45,32 +39,25 @@ const todoSlice = createSlice({
 
         deleteTodo: (state, action) => {
 
-            if (state.dateStatus[0].status.todoList.length === 1) {
-                state.dateStatus[0].status.listStatus.items = false
+            const i = state.todoList.findIndex((todo) => todo.id === action.payload.id)
+            if (state.todoList[i].length === 1) {
+                state.listStatus.items = false
             }
          
-            const newList = state.dateStatus[0].status.todoList.filter((todo) => todo.id !== action.payload.id)
-            state.dateStatus[0].status.todoList = newList
+            const newList = state.todoList.filter((todo) => todo.id !== action.payload.id)
+            state.todoList = newList
 
-            state.dateStatus[0].status.listStatus.itemsDue = state.dateStatus[0].status.todoList.some((e) => {
+            state.listStatus.itemsDue = state.todoList.some((e) => {
                 return !e.done;
             });
 
         },
         
-        setToday: (state, action) => {
-
-            state.dateStatus.status.todoList.push(action.payload)
-
-        }
-
     }
 });
 
-export const { saveTodo, setCheck, deleteTodo, editTodo, setToday } = todoSlice.actions
+export const { saveTodo, setCheck, deleteTodo, editTodo } = todoSlice.actions
 
-export const selectTodoList = state => state.todos.dateStatus[0].status.todoList
-
-export const selectDateStatus = state => state.todos.dateStatus
+export const selectTodoList = state => state.todos.todoList
 
 export default todoSlice.reducer
