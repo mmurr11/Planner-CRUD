@@ -4,8 +4,6 @@ import { createTheme } from '@mui/material'
 import { indigo, lightBlue } from '@mui/material/colors';
 import * as React from 'react';
 import Grid from '@mui/material/Grid';
-import CalendarContainer from './components/calendar/CalendarContainer';
-import WeatherContainer from './components/weather/Weather';
 
 const theme = createTheme({
   palette: {
@@ -33,8 +31,6 @@ const App = () => {
     <Grid id='one' sx={{ flexGrow: 1 }} container spacing={2}>
       <Grid id='two' item xs={12}>
         <Grid id='three' container justifyContent="center" alignItems="center" spacing={9}>
-          <WeatherContainer/>  
-          <CalendarContainer/>
           <TodoContainer/>
         </Grid>
       </Grid>      

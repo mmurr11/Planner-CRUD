@@ -2,16 +2,14 @@ import React from 'react'
 import TodoItem from './TodoItem'
 import Input from './Input'
 import { useSelector } from 'react-redux'
-import { selectDateStatus, selectTodoList } from '../../features/todoSlice';
+import { selectTodoList } from '../../features/todoSlice';
 import { Grid, Stack } from '@mui/material'
 import { Paper } from '@mui/material'
 
 const TodoContainer = () => {
 
     const todoList = useSelector(selectTodoList)
-    const dateStatus = useSelector(selectDateStatus)
-    console.log(dateStatus)
-
+console.log(todoList)
     return (
 
         <Grid id='todoContainer' item>

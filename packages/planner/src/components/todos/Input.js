@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './Input.css'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { saveTodo } from '../../features/todoSlice'
 import { Button, Paper } from '@mui/material'
 import { TextField } from '@mui/material'
