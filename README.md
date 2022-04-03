@@ -1,6 +1,6 @@
 ## What it is
 
-This is a basic todo writing app that uses React and Material UI.
+This is a basic todo writing app that uses React, Redux, and Material UI.
 
 ### How to use
 
