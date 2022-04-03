@@ -62,7 +62,6 @@ const TodoItem = ({ name, done, id }) => {
                     color='primary'
                     onChange={handleCheck}
                     inputProps={{ 'aria-label': 'secondary checkbox' }}
-                    size='large'
                 />
                 <TextareaAutosize
                     id={`textArea${id}`}
@@ -71,7 +70,6 @@ const TodoItem = ({ name, done, id }) => {
                     onChange={e => setItem(e.target.value)}                    
                     readOnly={readOnly}  
                     spellCheck={false}                 
-                    variant="standard"
                     onKeyPress={handleEnter}
                     style={{
                             fontFamily: 'inherit',
