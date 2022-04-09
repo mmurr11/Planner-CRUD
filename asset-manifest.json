@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Planner-CRUD/static/css/main.a0a3b181.css",
+    "main.js": "/Planner-CRUD/static/js/main.cc79e67f.js",
+    "index.html": "/Planner-CRUD/index.html",
+    "main.a0a3b181.css.map": "/Planner-CRUD/static/css/main.a0a3b181.css.map",
+    "main.cc79e67f.js.map": "/Planner-CRUD/static/js/main.cc79e67f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a0a3b181.css",
+    "static/js/main.cc79e67f.js"
+  ]
+}
